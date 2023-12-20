@@ -170,15 +170,23 @@ tokens_4 = [
 ]
 
 ast = parse(tokens_3)
+ast2 = parse(tokens_4)
 
 
 def print_ast(node, level=0):
-    if node is None:
-        return
-    print("  " * level + f"{node.type} : {node.value}")
-    for child in node.children:
-        print_ast(child, level + 1)
+  if node is None:
+    return
+  print("  " * level + f"{node.type} : {node.value}")
+  for child in node.children:
+    print_ast(child, level + 1)
 
+
+print('\n Precedence Handling Tree:\n')
 
 for node in ast:
+  print_ast(node)
+
+print('\n Bigger 2nd Tree with more cases : \n')
+
+for node in ast2:
   print_ast(node)
